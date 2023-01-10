@@ -7,7 +7,7 @@
 makeNum(Value)
 }
 \arguments{
-\item{Value}{character with numbers}
+\item{Value}{character string with numbers}
 }
 \value{
 numeric value
@@ -16,7 +16,7 @@ numeric value
 Takes Character and returns Number
 }
 \examples{
-MakeNum("<100")
+makeNum("<100")
 
 
 
