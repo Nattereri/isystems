@@ -1,11 +1,11 @@
 #' Takes Character and returns Number
 #'
-#' @param Value character with numbers
+#' @param Value character string with numbers
 #'
 #' @return numeric value
 #'
 #' @examples
-#' MakeNum("<100")
+#' makeNum("<100")
 #'
 #'
 #'
