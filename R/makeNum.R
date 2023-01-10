@@ -11,7 +11,7 @@
 #'
 #'
 #' @export
-MakeNum <- function (Value) {
+makeNum <- function (Value) {
 
 Value <- stringr::str_replace(Value, "[^0-9.-]", "")
 Value <- as.numeric(Value)
