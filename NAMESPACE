@@ -2,4 +2,5 @@
 
 export(leftCen)
 export(makeNum)
+export(metaDate)
 export(rightCen)
