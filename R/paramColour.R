@@ -19,7 +19,7 @@ paramColour <- function (lookUpParameter) {
     "Total Viable Count" = "darkgoldenrod3",
     "Conductivity" = "purple4",
     "Chloride" = "burlywood",
-    "Nitrate" = "coral3",
+    "Nitrite" = "coral3",
     "Total Iron" =  "darkred",
     "Total Copper" = "seagreen",
     "Total Sodium"  = "honeydew4",

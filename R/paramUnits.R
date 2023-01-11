@@ -19,7 +19,7 @@ paramUnits <- function (lookUpParameter) {
     "Total Viable Count" = "(cfu/100ml)",
     "Conductivity" = "(mS/m)",
     "Chloride" = "(mg/l)",
-    "Nitrate" = "(NO3-N mg/l)",
+    "Nitrite" = "(NO2-N mg/l)",
     "Total Iron" = "(mg/l)",
     "Total Copper" = "(mg/l)",
     "Total Sodium"  = "(mg/l)",
