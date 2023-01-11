@@ -4,7 +4,17 @@
 \alias{graphParameter}
 \title{Takes a Latis name and makes a consistent parameter name}
 \usage{
-graphParameter(df, g_param = "pH", g_facet = T)
+graphParameter(
+  df,
+  g_param = "pH",
+  g_facet = T,
+  p_size = 3,
+  p_alpha = 0.8,
+  loess_line = T,
+  loess_conf = F,
+  loess_width = 1.5,
+  loess_alpha = 0.8
+)
 }
 \arguments{
 \item{df}{data frame with Date, SampleID, Value and Parameter column}

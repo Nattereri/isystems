@@ -18,7 +18,13 @@
 #' @export
 graphParameter <- function(df,
                            g_param = "pH",
-                           g_facet = T) {
+                           g_facet = T,
+                           p_size = 3,
+                           p_alpha = 0.8,
+                           loess_line = T,
+                           loess_conf = F,
+                           loess_width = 1.5,
+                           loess_alpha = 0.8) {
 
   # check data is data.frame
   stopifnot("df_with_date must be data frame" =  is.data.frame(df))
@@ -37,9 +43,36 @@ graphParameter <- function(df,
   graph_df <- df %>%
     filter(Parameter == g_param)
 
+  if (g_param == "Pseudomonas Species" | g_param == "Total Viable Count"){
+    graph_df$value <- log10(1 + graph_df$value)
+  }
+
   p <- ggplot(graph_df, aes(x = Date, y = value)) +
-    geom_point(shape = 21) +
-    facet_wrap(.~SampleID) +
+    geom_point(shape = 21, fill = paramColour(g_param), size = p_size, alpha = p_alpha) +
+    facet_wrap(.~SampleID)
+
+  if (loess_line){
+    p <- p + geom_smooth(se = loess_conf,
+                         linetype = "dashed",
+                         linewidth = loess_width,
+                         alpha = loess_alpha,
+                         colour = paramColour(g_param))
+  }
+
+  if (g_param == "Pseudomonas Species" | g_param == "Total Viable Count"){
+    p <- p +  scale_y_log10(breaks = scales::trans_breaks("log10", function(x) 10^x),
+                            labels = scales::trans_format("log10", scales::math_format(10^.x))) +
+      annotation_logticks(sides = "rl")
+  } else {
+
+    p <- p + scale_y_continuous()
+
+  }
+
+  p <- p +
+    labs(title = glue("TimeLine of {g_param}"),
+                 y = glue("{g_param} {paramUnits(g_param)}"),
+                 caption = "") +
     theme_bw() +
     theme (legend.position = "none",
                       axis.text.x = element_text(size=10, face="bold", angle = 270),
