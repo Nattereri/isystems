@@ -21,7 +21,7 @@ metaDate <- function(system_df) {
   system_df_col_names <- colnames(system_df)
   stopifnot("DateTime column must be data frame" =  ("Date" %in% system_df_col_names))
 
-  #check Datecolumn
+  #check Date column
   stopifnot("Input must have Date column" =  lubridate::is.Date(system_df$Date))
 
   system_df %>%

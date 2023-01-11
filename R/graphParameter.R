@@ -20,6 +20,20 @@ graphParameter <- function(df,
                            g_param = "pH",
                            g_facet = T) {
 
+  # check data is data.frame
+  stopifnot("df_with_date must be data frame" =  is.data.frame(df))
+
+  #check column names have DateTime column
+  system_df_col_names <- colnames(df)
+  stopifnot("DateTime column must be data frame" =  ("Date" %in% system_df_col_names))
+
+  #check Date column
+  stopifnot("Input must have Date column" =  lubridate::is.Date(df$Date))
+
+  #check parameter can be graphed
+  system_df_col_names <- colnames(df)
+  stopifnot("Parameter is not in the graph list" =  (g_param %in% paramList()))
+
   graph_df <- df %>%
     filter(Parameter == g_param)
 
