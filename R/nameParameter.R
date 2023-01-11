@@ -17,6 +17,7 @@ nameParameter <- function(df) {
     mutate(Parameter = case_when(
       LatisName ==  "Appearance" ~ "Appearance",
       LatisName ==  "TVC22s" ~ "Total Viable Count",
+      LatisName ==  "TVC22/72hr" ~ "Total Viable Count",
       LatisName ==  "Temperature" ~ "Temperature",
       LatisName ==  "Temp" ~ "Temperature",
       LatisName ==  "Molybdat13" ~ "Molybdate",
