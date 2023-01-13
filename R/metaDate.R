@@ -26,6 +26,13 @@ metaDate <- function(system_df) {
 
   system_df %>%
     dplyr::mutate(Month = lubridate::month(Date, label = T),
+                  MonthNr = lubridate::month(Date),
                   MonthFull = lubridate::month(Date, label = T, abbr = F),
-                  Year = lubridate::year(Date))
+                  Year = lubridate::year(Date),
+                  Week = lubridate::week(Date),
+                  YearDay = lubridate::yday(Date),
+                  MonthDay = lubridate::mday(Date),
+                  WeekDay = lubridate::wday(Date, label = T),
+                  WeekDayFull = lubridate::wday(Date, label = T, abbr = F))
+
 }
