@@ -15,14 +15,14 @@
 metaDate <- function(system_df) {
 
   # check data is data.frame
-  stopifnot("df_with_date must be data frame" =  is.data.frame(system_df))
+  stopifnot("input must be data frame/tibble" =  is.data.frame(system_df))
 
-  #check column names have DateTime column
+  #check column names have Date column
   system_df_col_names <- colnames(system_df)
-  stopifnot("DateTime column must be data frame" =  ("Date" %in% system_df_col_names))
+  stopifnot("Date column name must be in the data frame" =  ("Date" %in% system_df_col_names))
 
   #check Date column
-  stopifnot("Input must have Date column" =  lubridate::is.Date(system_df$Date))
+  stopifnot("Input must be a Date" =  lubridate::is.Date(system_df$Date))
 
   system_df %>%
     dplyr::mutate(Month = lubridate::month(Date, label = T),
