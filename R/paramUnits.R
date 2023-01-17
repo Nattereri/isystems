@@ -11,6 +11,7 @@
 paramUnits <- function (lookUpParameter) {
 
   unitsList <- c(#Look up table as named vector
+    "Appearance"  = "",
     "Temperature" = "(\u00B0C)",
     "Molybdate"  = "(MoO4 mg/l)",
     "Glycol" = "(mg/l)",
