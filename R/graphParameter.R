@@ -18,6 +18,7 @@
 #' @export
 graphParameter <- function(df,
                            g_param = "pH",
+                           g_system = "",
                            g_facet = T,
                            p_size = 3,
                            p_alpha = 0.8,
@@ -70,7 +71,7 @@ graphParameter <- function(df,
   }
 
   p <- p +
-    labs(title = glue("TimeLine of {g_param}"),
+    labs(title = glue("TimeLine of {g_system}: {g_param}"),
                  y = glue("{g_param} {paramUnits(g_param)}"),
                  caption = "") +
     theme_bw() +

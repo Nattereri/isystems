@@ -7,6 +7,7 @@
 graphParameter(
   df,
   g_param = "pH",
+  g_system = "",
   g_facet = T,
   p_size = 3,
   p_alpha = 0.8,
