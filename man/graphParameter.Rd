@@ -14,7 +14,8 @@ graphParameter(
   loess_line = T,
   loess_conf = F,
   loess_width = 1.5,
-  loess_alpha = 0.8
+  loess_alpha = 0.8,
+  control_limits = T
 )
 }
 \arguments{

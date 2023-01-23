@@ -25,7 +25,8 @@ graphParameter <- function(df,
                            loess_line = T,
                            loess_conf = F,
                            loess_width = 1.5,
-                           loess_alpha = 0.8) {
+                           loess_alpha = 0.8,
+                           control_limits = T) {
 
   # check data is data.frame
   stopifnot("df_with_date must be data frame" =  is.data.frame(df))
@@ -48,8 +49,32 @@ graphParameter <- function(df,
     graph_df$value <- log10(1 + graph_df$value)
   }
 
-  p <- ggplot(graph_df, aes(x = Date, y = value)) +
-    geom_point(shape = 21, fill = paramColour(g_param), size = p_size, alpha = p_alpha) +
+  p <- ggplot(graph_df, aes(x = Date, y = value))
+
+  if (control_limits){
+
+    S_date <-  min(graph_df$Date, na.rm = T)
+    E_date <-  max(graph_df$Date, na.rm = T)
+
+    c_val <- cvalues %>%
+      filter(Parameter == g_param)
+
+    if (!is.na(c_val$c1) & !is.na(c_val$c2)) {
+
+      p <- p +  annotate("rect", xmin = S_date, xmax = E_date,
+                         ymin =c_val$c1, ymax = c_val$c2, alpha = .6,  fill = "darkgreen")
+
+    } else if (!is.na(c_val$c2)) {
+
+     ymin_graph_df <- min(graph_df$value, na.rm = T)
+
+     p <- p +  annotate("rect", xmin = S_date, xmax = E_date,
+                        ymin =c_val$c1, ymax = c_val$c2, alpha = .6,  fill = "darkgreen")
+
+    }
+  }
+
+  p <- p + geom_point(shape = 21, fill = paramColour(g_param), size = p_size, alpha = p_alpha) +
     facet_wrap(.~SampleID)
 
   if (loess_line){
