@@ -64,7 +64,7 @@ graphParameter <- function(df,
       p <- p +  annotate("rect", xmin = S_date, xmax = E_date,
                          ymin =c_val$c1, ymax = c_val$c2, alpha = .6,  fill = "darkgreen")
 
-    } else if (!is.na(c_val$c2)) {
+    } else if (is.na(c_val$c2)) {
 
      ymin_graph_df <- min(graph_df$value, na.rm = T)
 
