@@ -36,4 +36,13 @@ SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 2", "CHW 2", "CHW 2")
 system_df <- tibble(Date, Parameter, value, SampleID)
 graphParameter(system_df, g_param = "pH", g_facet = T)
 
+
+Date <- c("2022-07-3", "2022-08-7", "2022-09-5", "2022-10-3", "2022-11-7", "2022-12-5")
+Date <- lubridate::ymd(Date)
+Parameter <- c("Total Iron", "Total Iron", "Total Iron", "Total Iron", "Total Iron", "Total Iron")
+value <- c(2.5, 2.8, 3.5, 4.3, 6.5, 10)
+SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
+system_df <- tibble(Date, Parameter, value, SampleID)
+graphParameter(system_df, g_param = "Total Iron", g_facet = T)
+
 }

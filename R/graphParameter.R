@@ -15,6 +15,15 @@
 #' system_df <- tibble(Date, Parameter, value, SampleID)
 #' graphParameter(system_df, g_param = "pH", g_facet = T)
 #'
+#'
+#' Date <- c("2022-07-3", "2022-08-7", "2022-09-5", "2022-10-3", "2022-11-7", "2022-12-5")
+#' Date <- lubridate::ymd(Date)
+#' Parameter <- c("Total Iron", "Total Iron", "Total Iron", "Total Iron", "Total Iron", "Total Iron")
+#' value <- c(2.5, 2.8, 3.5, 4.3, 6.5, 10)
+#' SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
+#' system_df <- tibble(Date, Parameter, value, SampleID)
+#' graphParameter(system_df, g_param = "Total Iron", g_facet = T)
+#'
 #' @export
 graphParameter <- function(df,
                            g_param = "pH",
@@ -53,8 +62,18 @@ graphParameter <- function(df,
 
   if (control_limits){
 
+    # Get date range so graph covers all points
     S_date <-  min(graph_df$Date, na.rm = T)
     E_date <-  max(graph_df$Date, na.rm = T)
+
+    numDays <- as.double(difftime(E_date,
+                       S_date,
+                       units = "days"))
+
+    numDays <- as.integer(numDays * 0.1)
+
+    S_date <- S_date - ddays(numDays)
+    E_date <- E_date + ddays(numDays)
 
     c_val <- cvalues %>%
       filter(Parameter == g_param)
@@ -64,12 +83,16 @@ graphParameter <- function(df,
       p <- p +  annotate("rect", xmin = S_date, xmax = E_date,
                          ymin =c_val$c1, ymax = c_val$c2, alpha = .6,  fill = "darkgreen")
 
-    } else if (is.na(c_val$c2)) {
+    }
+
+    if (is.na(c_val$c2)) {
 
      ymin_graph_df <- min(graph_df$value, na.rm = T)
 
+     ymin_graph_df <- ymin_graph_df - (ymin_graph_df * 0.1)
+
      p <- p +  annotate("rect", xmin = S_date, xmax = E_date,
-                        ymin =c_val$c1, ymax = c_val$c2, alpha = .6,  fill = "darkgreen")
+                        ymin =ymin_graph_df, ymax = c_val$c1, alpha = .6,  fill = "darkgreen")
 
     }
   }
