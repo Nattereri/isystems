@@ -31,6 +31,7 @@ graphParameter <- function(df,
                            g_facet = T,
                            p_size = 3,
                            p_alpha = 0.8,
+                           c_alpha = 0.5,
                            loess_line = T,
                            loess_conf = F,
                            loess_width = 1.5,
@@ -81,7 +82,7 @@ graphParameter <- function(df,
     if (!is.na(c_val$c1) & !is.na(c_val$c2)) {
 
       p <- p +  annotate("rect", xmin = S_date, xmax = E_date,
-                         ymin =c_val$c1, ymax = c_val$c2, alpha = .6,  fill = "darkgreen")
+                         ymin =c_val$c1, ymax = c_val$c2, alpha = c_alpha,  fill = "darkgreen")
 
     }
 
@@ -92,7 +93,7 @@ graphParameter <- function(df,
      ymin_graph_df <- ymin_graph_df - (ymin_graph_df * 0.1)
 
      p <- p +  annotate("rect", xmin = S_date, xmax = E_date,
-                        ymin =ymin_graph_df, ymax = c_val$c1, alpha = .6,  fill = "darkgreen")
+                        ymin =ymin_graph_df, ymax = c_val$c1, alpha = c_alpha,  fill = "darkgreen")
 
     }
   }
