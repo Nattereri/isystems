@@ -5,7 +5,7 @@
 \alias{cvalues}
 \title{Control values for closed systems}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 18 rows and 4 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 21 rows and 8 columns.
 }
 \usage{
 data(cvalues)

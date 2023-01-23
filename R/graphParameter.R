@@ -31,12 +31,13 @@ graphParameter <- function(df,
                            g_facet = T,
                            p_size = 3,
                            p_alpha = 0.8,
-                           c_alpha = 0.5,
+                           c_alpha = 0.4,
                            loess_line = T,
                            loess_conf = F,
                            loess_width = 1.5,
                            loess_alpha = 0.8,
-                           control_limits = T) {
+                           control_limits = T,
+                           inhibitor = "mixed") {
 
   # check data is data.frame
   stopifnot("df_with_date must be data frame" =  is.data.frame(df))
@@ -76,7 +77,22 @@ graphParameter <- function(df,
     S_date <- S_date - ddays(numDays)
     E_date <- E_date + ddays(numDays)
 
-    c_val <- cvalues %>%
+    if(inhibitor == "mixed"){
+
+      c_val <- cvalues %>%
+        filter(Inhibitor != "nitrite")
+
+    }
+
+    if(inhibitor == "nitrite"){
+
+      c_val <- cvalues %>%
+        filter(Inhibitor != "mixed")
+
+    }
+
+
+    c_val <-  c_val%>%
       filter(Parameter == g_param)
 
     if (!is.na(c_val$c1) & !is.na(c_val$c2)) {

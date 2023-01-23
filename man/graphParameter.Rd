@@ -11,12 +11,13 @@ graphParameter(
   g_facet = T,
   p_size = 3,
   p_alpha = 0.8,
-  c_alpha = 0.5,
+  c_alpha = 0.4,
   loess_line = T,
   loess_conf = F,
   loess_width = 1.5,
   loess_alpha = 0.8,
-  control_limits = T
+  control_limits = T,
+  inhibitor = "mixed"
 )
 }
 \arguments{
