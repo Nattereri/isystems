@@ -97,7 +97,8 @@ graphParameter <- function(df,
     if(inhibitor == "mixed"){
 
       c_val <- cvalues %>%
-        filter(Inhibitor != "nitrite")
+        filter(Inhibitor != "nitrite") %>%
+        filter(Inhibitor != "not mixed")
 
     }
 
