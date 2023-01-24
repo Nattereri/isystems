@@ -180,7 +180,7 @@ graphParameter <- function(df,
                       panel.grid.major.y = element_line(colour = "grey80", linetype = "dotted"),
                       panel.grid.minor.y = element_blank(),
                       panel.grid.major.x = element_line(colour = "grey80", linetype = "dotted"),
-                      plot.caption = element_text(size=10, face="bold.italic"),
+                      plot.caption = element_markdown(size=10, face="bold.italic"),
                       strip.text = element_text(size=10, face="bold", colour = "white"),
                       strip.background = element_rect(fill = "black"))
 
