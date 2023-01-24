@@ -78,6 +78,7 @@ graphParameter <- function(df,
 
   p <- ggplot(graph_df, aes(x = Date, y = value))
 
+  caption_text <- ""
   if (control_limits){
 
     # Get date range so graph covers all points
@@ -128,6 +129,8 @@ graphParameter <- function(df,
                         ymin =ymin_graph_df, ymax = c_val$c1, alpha = c_alpha,  fill = "darkgreen")
 
     }
+
+    caption_text <- c_val$Notes
   }
 
   p <- p + geom_point(shape = 21, fill = paramColour(g_param), size = p_size, alpha = p_alpha) +
@@ -154,7 +157,7 @@ graphParameter <- function(df,
   p <- p +
     labs(title = glue("TimeLine of {g_system}: {g_param}"),
                  y = glue("{g_param} {paramUnits(g_param)}"),
-                 caption = "") +
+                 caption = caption_text) +
     theme_bw() +
     theme (legend.position = "none",
                       axis.text.x = element_text(size=10, face="bold", angle = 270),
@@ -166,8 +169,8 @@ graphParameter <- function(df,
                       panel.grid.major.y = element_line(colour = "grey80", linetype = "dotted"),
                       panel.grid.minor.y = element_blank(),
                       panel.grid.major.x = element_line(colour = "grey80", linetype = "dotted"),
-                      plot.caption = element_text(),
-                      strip.text = element_text(face="bold", colour = "white"),
+                      plot.caption = element_text(size=10, face="bold.italic"),
+                      strip.text = element_text(size=10, face="bold", colour = "white"),
                       strip.background = element_rect(fill = "black"))
 
   p
