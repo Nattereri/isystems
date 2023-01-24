@@ -69,4 +69,13 @@ SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
 system_df <- tibble::tibble(Date, Parameter, value, SampleID)
 graphParameter(system_df, g_param = "Total Iron", g_facet = T)
 
+
+Date <- c("2022-07-3", "2022-08-7", "2022-09-5", "2022-10-3", "2022-11-7", "2022-12-5")
+Date <- lubridate::ymd(Date)
+Parameter <- c("Molybdate", "Molybdate", "Molybdate", "Molybdate", "Molybdate", "Molybdate")
+value <- c(450, 425, 420, 400, 390, 290)
+SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
+system_df <- tibble::tibble(Date, Parameter, value, SampleID)
+graphParameter(system_df, g_param = "Molybdate", g_facet = T)
+
 }
