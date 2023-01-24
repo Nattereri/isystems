@@ -19,6 +19,7 @@
 #' @import ggplot2
 #' @import lubridate
 #' @import magrittr
+#' @import ggtext
 #'
 #' @return ggplot graph
 #'

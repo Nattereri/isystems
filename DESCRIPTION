@@ -16,4 +16,5 @@ Imports:
     tidyverse,
     lubridate,
     magrittr,
-    ggplot2
+    ggplot2,
+    ggtext
