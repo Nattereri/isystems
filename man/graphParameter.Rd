@@ -21,7 +21,29 @@ graphParameter(
 )
 }
 \arguments{
-\item{df}{data frame with Date, SampleID, Value and Parameter column}
+\item{df}{Data frame with Date, SampleID, Value and Parameter column.}
+
+\item{g_system}{String. System name blank by default.}
+
+\item{g_facet}{Logical. If TRUE graphs are faceted. TRUE by default.}
+
+\item{p_size}{Numeric. Point size on graph.}
+
+\item{p_alpha}{Numeric. Alpha of point.}
+
+\item{c_alpha}{Numeric. Alpha of control value annotation.}
+
+\item{loess_line}{Logical. Display loess curve. TRUE by default.}
+
+\item{loess_conf}{Logical. Display loess confidence. FALSE by default.}
+
+\item{loess_width}{Numeric. Loess line width.}
+
+\item{loess_alpha}{Numeric. Alpha of loess line.}
+
+\item{control_limits}{Logical. Display control limits. TRUE by default.}
+
+\item{inhibitor}{String. Inhibitor stratergy; "nitrite", "mixed".}
 }
 \value{
 ggplot graph
@@ -35,7 +57,7 @@ Date <- lubridate::ymd(Date)
 Parameter <- c("pH", "pH", "pH", "pH", "pH", "pH")
 value <- c(7.5, 8.8, 9.0, 5.0, 6.5, 7.8)
 SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 2", "CHW 2", "CHW 2")
-system_df <- tibble(Date, Parameter, value, SampleID)
+system_df <- tibble::tibble(Date, Parameter, value, SampleID)
 graphParameter(system_df, g_param = "pH", g_facet = T)
 
 
@@ -44,7 +66,7 @@ Date <- lubridate::ymd(Date)
 Parameter <- c("Total Iron", "Total Iron", "Total Iron", "Total Iron", "Total Iron", "Total Iron")
 value <- c(2.5, 2.8, 3.5, 4.3, 6.5, 10)
 SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
-system_df <- tibble(Date, Parameter, value, SampleID)
+system_df <- tibble::tibble(Date, Parameter, value, SampleID)
 graphParameter(system_df, g_param = "Total Iron", g_facet = T)
 
 }

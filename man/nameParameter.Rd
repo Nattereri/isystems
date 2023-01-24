@@ -16,7 +16,7 @@ Parameter
 Latis lab names only
 }
 \examples{
-latis_df <- tibble(LatisName = c("Appearance", "ChloridG01", "Cu36", "Fe36" , TVC22/72hr))
+latis_df <- tibble(LatisName = c("Appearance", "ChloridG01", "Cu36", "Fe36" , "TVC22/72hr"))
 nameParameter(latis_df)
 
 }

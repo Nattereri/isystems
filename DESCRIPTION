@@ -12,3 +12,8 @@ LazyData: true
 URL: https://github.com/Nattereri/isystems
 BugReports: https://github.com/Nattereri/isystems/issues
 RoxygenNote: 7.2.3
+Imports:
+    tidyverse,
+    lubridate,
+    magrittr,
+    ggplot2
