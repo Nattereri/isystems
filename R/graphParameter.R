@@ -168,7 +168,7 @@ graphParameter <- function(df,
   p <- p +
     labs(title = glue("TimeLine of {g_system}: {g_param}"),
                  y = glue("{g_param} {paramUnits(g_param)}"),
-                 caption = caption_text) +
+                 caption = glue("{caption_text})")) +
     theme_bw() +
     theme (legend.position = "none",
                       axis.text.x = element_text(size=10, face="bold", angle = 270),
