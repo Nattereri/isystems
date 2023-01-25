@@ -166,11 +166,7 @@ graphParameter <- function(df,
   }
 
   p <- p +
-<<<<<<< HEAD
     labs(title = glue("Time Line for {g_system} systems: {g_param}"),
-=======
-    labs(title = glue("Time Line for {g_system} system: {g_param}"),
->>>>>>> 097749d922e916b2d988c760ce5a5a2fe9a53373
                  y = glue("{g_param} {paramUnits(g_param)}"),
                  caption = glue("{caption_text}")) +
     theme_bw() +
