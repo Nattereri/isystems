@@ -14,10 +14,10 @@ paramUnits <- function (lookUpParameter) {
     "Appearance"  = "",
     "Temperature" = "(\u00B0C)",
     "Molybdate"  = "(MoO4 mg/l)",
-    "Glycol" = "(mg/l)",
+    "Glycol" = "(%v/v)",
     "pH" = "",
     "Pseudomonas Species" = "(cfu/100ml)",
-    "Total Viable Count" = "(cfu/100ml)",
+    "Total Viable Count" = "(cfu/100ml @22\u00B0C)",
     "Conductivity" = "(mS/m)",
     "Chloride" = "(mg/l)",
     "Nitrite" = "(NO2-N mg/l)",
@@ -25,7 +25,10 @@ paramUnits <- function (lookUpParameter) {
     "Total Copper" = "(mg/l)",
     "Total Sodium"  = "(mg/l)",
     "TDS"  = "(mg/l)",
-    "Sulphate" = "(mg/l)")
+    "Sulphate" = "(mg/l)",
+
+    "Inhibitor" = "(mg/l)",
+    "Soluble Iron" = "(mg/l)")
 
   unitsList[[lookUpParameter]]
 
