@@ -27,7 +27,8 @@ paramColour <- function (lookUpParameter) {
     "Sulphate" = "dodgerblue",
 
     "Inhibitor" = "moccasin",
-    "Soluble Iron" = "red")
+    "Soluble Iron" = "red",
+    "Soluble Copper" = "darkorange4")
 
   unitsList[[lookUpParameter]]
 

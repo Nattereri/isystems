@@ -28,7 +28,8 @@ paramUnits <- function (lookUpParameter) {
     "Sulphate" = "(mg/l)",
 
     "Inhibitor" = "(mg/l)",
-    "Soluble Iron" = "(mg/l)")
+    "Soluble Iron" = "(mg/l)",
+    "Soluble Copper" = "(mg/l)")
 
   unitsList[[lookUpParameter]]
 
