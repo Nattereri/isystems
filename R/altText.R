@@ -24,6 +24,7 @@ altText <- function (lookUpParameter) {
     "TDS" = "Total Dissolved Solids",
     "Temperature" = "Temperature",
     "Total Copper" = "Total Copper",
+    "Soluble Copper" = "Soluble Copper",
     "Total Iron" = "Total Iron",
     "Soluble Iron" = "Soluble Iron",
     "Total Sodium" = "Total Sodium",
