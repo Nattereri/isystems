@@ -73,7 +73,7 @@ ggplotlyParam <- function(df,
 
   #check column names have DateTime column
   system_df_col_names <- colnames(df)
-  stopifnot("DateTime column must be data frame" =  ("Date" %in% system_df_col_names))
+  stopifnot("Date column must in the data frame" =  ("Date" %in% system_df_col_names))
 
   #check Date column
   stopifnot("Input must have Date column" =  lubridate::is.Date(df$Date))
@@ -276,7 +276,22 @@ ggplotlyParam <- function(df,
 
     p <- ggplot(df, aes(x, y)) +
       geom_text(aes(label = text)) +
-      No_data
+      theme_bw() +
+      theme (#text = element_text(family = font),
+        legend.position = "none",
+        axis.text.x = element_blank(),
+        axis.text.y = element_blank(),
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank(),
+        axis.ticks = element_blank(),
+        plot.title = element_text(size=14),
+        panel.grid.minor = element_blank(),
+        panel.grid.major.y = element_line(colour = "grey80", linetype = "dotted", size = 0.1),
+        panel.grid.minor.y = element_blank(),
+        panel.grid.major.x = element_line(colour = "grey80", linetype = "dotted", size = 0.1),
+        plot.caption = element_text(size=8, face="italic"),
+        strip.text = element_text(size=6, colour = "white"),
+        strip.background = element_rect(fill = "black"))
   }
 
   if (gg_plotly) {
