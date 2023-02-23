@@ -47,6 +47,20 @@
 #'
 #' ggplotlyParam(system_df, site = "No 10", plot_parameter = "pH", gg_plotly = T)
 #'
+#' Date <- c("2022-08-3", "2022-10-7", "2022-12-5", "2023-02-3", "2023-04-7")
+#' Date <- lubridate::ymd(Date)
+#' Year <- lubridate::year(Date)
+#' Parameter <- c("Glycol", "Glycol", "Glycol", "Glycol", "Glycol")
+#' value <- c(15, 20, 30, 29, 31)
+#' system <- c("CHW", "CHW", "CHW", "CHW", "CHW")
+#' SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
+#' system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
+#' ggplotlyParam(system_df,
+#'               site = "No 10",
+#'               plot_system = "CHW",
+#'               plot_parameter = "Glycol",
+#'               show_controlvalues = T)
+#'
 #' @export
 ggplotlyParam <- function(df,
                           site = "",
@@ -121,7 +135,10 @@ ggplotlyParam <- function(df,
       # C_value1 = c_v$C_value1[1]
       # C_value2 = c_v$C_value2[1]
 
-      if (plot_parameter == "pH" | plot_parameter == "Molybdate" | plot_parameter == "Inhibitor") {
+      if (plot_parameter == "pH" |
+          plot_parameter == "Molybdate" |
+          plot_parameter == "Inhibitor" |
+          plot_parameter == "Nitrite") {
         p <- p + # Control values
           annotate("rect",
                    xmin = S_date, xmax = E_date,
@@ -137,26 +154,32 @@ ggplotlyParam <- function(df,
           )
       } else if (plot_parameter == "Glycol") {
 
-
+        p <- p + # Control values
+          annotate("rect",
+                   xmin = S_date, xmax = E_date,
+                   ymin = 0, ymax = C_value1, alpha = .3, fill = "red"
+          ) +
+          annotate("rect",
+                   xmin = S_date, xmax = E_date,
+                   ymin = C_value1, ymax = +Inf, alpha = .3, fill = "darkgreen")
 
 
       } else {
 
         # Control value
-        p <- p + geom_hline(yintercept = C_value1, colour = "darkred", linetype = "dashed")
+        #p <- p + geom_hline(yintercept = C_value1, colour = "darkred", linetype = "dashed")
 
-        # p <- p + # Control values
-        #   annotate("rect",
-        #     xmin = S_date, xmax = E_date,
-        #     ymin = 0, ymax = C_value1, alpha = .3, fill = "darkgreen"
-        #   ) +
-        #   annotate("rect",
-        #     xmin = S_date, xmax = E_date,
-        #     ymin = C_value1, ymax = +Inf, alpha = .3, fill = "red")
+        p <- p + # Control values
+          annotate("rect",
+            xmin = S_date, xmax = E_date,
+            ymin = 0, ymax = C_value1, alpha = .3, fill = "darkgreen"
+          ) +
+          annotate("rect",
+            xmin = S_date, xmax = E_date,
+            ymin = C_value1, ymax = +Inf, alpha = .3, fill = "red")
 
       }
     }
-
 
     p <- p + geom_point(
       size = 3,

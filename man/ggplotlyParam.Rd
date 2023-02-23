@@ -85,4 +85,18 @@ ggplotlyParam(system_df, site = "No 10", plot_parameter = "pH")
 
 ggplotlyParam(system_df, site = "No 10", plot_parameter = "pH", gg_plotly = T)
 
+Date <- c("2022-08-3", "2022-10-7", "2022-12-5", "2023-02-3", "2023-04-7")
+Date <- lubridate::ymd(Date)
+Year <- lubridate::year(Date)
+Parameter <- c("Glycol", "Glycol", "Glycol", "Glycol", "Glycol")
+value <- c(15, 20, 30, 29, 31)
+system <- c("CHW", "CHW", "CHW", "CHW", "CHW")
+SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
+system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
+ggplotlyParam(system_df,
+              site = "No 10",
+              plot_system = "CHW",
+              plot_parameter = "Glycol",
+              show_controlvalues = T)
+
 }
