@@ -20,7 +20,6 @@ numeric (kW)
 Returns pump power (kW) for a head and discharge
 }
 \examples{
-pumpPower(17.5, 28.0, eff= 0.71)
-pumpPower(35, 60.0, eff= 0.55)
+pumpPower(35, 0.06, eff= 0.55)
 
 }

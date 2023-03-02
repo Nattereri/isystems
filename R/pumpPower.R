@@ -7,12 +7,11 @@
 #' @return numeric (kW)
 #'
 #' @examples
-#' pumpPower(17.5, 28.0, eff= 0.71)
-#' pumpPower(35, 60.0, eff= 0.55)
+#' pumpPower(35, 0.06, eff= 0.55)
 #'
 #' @export
 pumpPower <- function (Hm, Q, eff = 0.7) {
 
-  (9.81 * (Q/1000) * Hm) / eff
+  (9.81 * Q * Hm) / eff
 
 }
