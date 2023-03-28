@@ -44,11 +44,11 @@
 #'
 #' Date <- c("2022-07-3", "2022-08-7", "2022-09-5", "2022-10-3", "2022-11-7", "2022-12-5")
 #' Date <- lubridate::ymd(Date)
-#' Parameter <- c("Molybdate", "Molybdate", "Molybdate", "Molybdate", "Molybdate", "Molybdate")
-#' value <- c(450, 425, 420, 400, 390, 290)
+#' Parameter <- c("Total Viable Count", "Total Viable Count", "Total Viable Count", "Total Viable Count", "Total Viable Count", "Total Viable Count")
+#' value <- c(100, 1000, 10000, 100000, 1000000, 10000000)
 #' SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
 #' system_df <- tibble::tibble(Date, Parameter, value, SampleID)
-#' graphParameter(system_df, g_param = "Molybdate", g_facet = T)
+#' graphParameter(system_df, g_param = "Total Viable Count")
 #'
 #' @export
 graphParameter <- function(df,
@@ -82,8 +82,23 @@ graphParameter <- function(df,
   graph_df <- df %>%
     filter(Parameter == g_param)
 
+
+  # Get date range so graph covers all points (for use in control value plotting)
+  S_date <-  min(graph_df$Date, na.rm = T)
+  E_date <-  max(graph_df$Date, na.rm = T)
+
+  numDays <- as.double(difftime(E_date,
+                                S_date,
+                                units = "days"))
+
+  numDays <- as.integer(numDays * 0.1)
+
+  S_date <- S_date - ddays(numDays)
+  E_date <- E_date + ddays(numDays)
+
   if (g_param == "Pseudomonas Species" | g_param == "Total Viable Count"){
-    graph_df$value <- log10(1 + graph_df$value)
+    #graph_df$value <- log10(1 + graph_df$value)
+    graph_df$value <- 1 + graph_df$value
   }
 
   p <- ggplot(graph_df, aes(x = Date, y = value))
@@ -91,18 +106,7 @@ graphParameter <- function(df,
   caption_text <- ""
   if (control_limits){
 
-    # Get date range so graph covers all points
-    S_date <-  min(graph_df$Date, na.rm = T)
-    E_date <-  max(graph_df$Date, na.rm = T)
 
-    numDays <- as.double(difftime(E_date,
-                       S_date,
-                       units = "days"))
-
-    numDays <- as.integer(numDays * 0.1)
-
-    S_date <- S_date - ddays(numDays)
-    E_date <- E_date + ddays(numDays)
 
     if(inhibitor == "mixed"){
 
@@ -136,12 +140,19 @@ graphParameter <- function(df,
 
      ymin_graph_df <- ymin_graph_df - (ymin_graph_df * 0.1)
 
-     p <- p +  annotate("rect", xmin = S_date, xmax = E_date,
-                        ymin =ymin_graph_df, ymax = c_val$c1, alpha = c_alpha,  fill = "darkgreen")
+     if (g_param == "Pseudomonas Species" | g_param == "Total Viable Count"){
+
+     } else {
+
+       p <- p +  annotate("rect", xmin = S_date, xmax = E_date,
+                          ymin =ymin_graph_df, ymax = c_val$c1, alpha = c_alpha,  fill = "darkgreen")
+
+     }
 
     }
 
     caption_text <- c_val$Notes
+
   }
 
   p <- p + geom_point(shape = 21, fill = paramColour(g_param), size = p_size, alpha = p_alpha) +
@@ -159,6 +170,17 @@ graphParameter <- function(df,
     p <- p +  scale_y_log10(breaks = scales::trans_breaks("log10", function(x) 10^x),
                             labels = scales::trans_format("log10", scales::math_format(10^.x))) +
       annotation_logticks(sides = "rl")
+
+    if (control_limits){
+
+      p <- p +
+        annotate("rect", xmin = S_date, xmax = E_date, ymin = 1, ymax = 10^2, alpha = .4, fill = "darkgreen") +
+        annotate("rect", xmin = S_date, xmax = E_date, ymin = 10^2, ymax = 10^4, alpha = .4, fill = "darkseagreen1") +
+        annotate("rect", xmin = S_date, xmax = E_date, ymin = 10^4, ymax = 10^6, alpha = .2, fill = "darkred") +
+        annotate("rect", xmin = S_date, xmax = E_date, ymin = 10^6, ymax = Inf, alpha = .2, fill = "deeppink3")
+
+    }
+
   } else {
 
     p <- p + scale_y_continuous()
