@@ -15,6 +15,13 @@
 #' @export
 waterHeatingkWh <- function (m, T_i, T_f, eff = 0.88) {
 
+  # check data is numeric
+  stopifnot("mass must be numeric" =  is.numeric(m))
+  stopifnot("Initial temperature must be numeric" =  is.numeric(T_i))
+  stopifnot("Final temperature must be numeric" =  is.numeric(T_f))
+  stopifnot("Boiler efficiency must be numeric" =  is.numeric(eff))
+
+
   c <- 4184
   JkWh <- 2.7777778 * 10^(-7)
 

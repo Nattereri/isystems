@@ -12,6 +12,10 @@
 #' @export
 pumpPower <- function (Hm, Q, eff = 0.7) {
 
+  stopifnot("Pump efficiency must be numeric" =  is.numeric(eff))
+  stopifnot("Pump flow must be numeric" =  is.numeric(Q))
+  stopifnot("Pump head must be numeric" =  is.numeric(Hm))
+
   (9.81 * Q * Hm) / eff
 
 }
