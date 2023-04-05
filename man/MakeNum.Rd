@@ -17,6 +17,7 @@ Takes Character and returns Number
 }
 \examples{
 makeNum("<100")
+makeNum(" 5,811.0")
 
 
 

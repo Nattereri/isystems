@@ -6,6 +6,7 @@
 #'
 #' @examples
 #' makeNum("<100")
+#' makeNum(" 5,811.0")
 #'
 #'
 #'
@@ -13,6 +14,7 @@
 #' @export
 makeNum <- function (Value) {
 
+Value <- stringr::str_trim(Value, side = c("both"))
 Value <- stringr::str_replace(Value, "[^0-9.-]", "")
 Value <- as.numeric(Value)
 
