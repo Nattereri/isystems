@@ -10,11 +10,18 @@ metaDate(system_df)
 \item{system_df}{bat data frame with Date column}
 }
 \value{
-Month, MonthFull, Year
+data.frame
 }
 \description{
-Creates useful date information (Month, MonthFull, Year)
-from the Date column; as extra columns in the data frame
+From the Date column creates useful date information (Month, MonthNr, MonthFull, Year, Week,
+YearDay, MonthDay, WeekDay, WeekDayFull, Season); as extra columns in the data frame.
+}
+\details{
+Season:
+Meteorological spring March 1 to May 31
+Meteorological summer June 1 to August 31
+Meteorological autumn September 1 to November 30
+Meteorological winter December 1 to February 28
 }
 \examples{
 sys_data_frame <- tibble(Date = Sys.Date())
