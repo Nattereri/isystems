@@ -7,7 +7,7 @@
 metaDate(system_df)
 }
 \arguments{
-\item{system_df}{bat data frame with Date column}
+\item{system_df}{data frame with Date column}
 }
 \value{
 data.frame
@@ -18,10 +18,10 @@ YearDay, MonthDay, WeekDay, WeekDayFull, Season); as extra columns in the data f
 }
 \details{
 Season:
-Meteorological spring March 1 to May 31
-Meteorological summer June 1 to August 31
-Meteorological autumn September 1 to November 30
-Meteorological winter December 1 to February 28
+Meteorological spring March 1 to May 31.
+Meteorological summer June 1 to August 31.
+Meteorological autumn September 1 to November 30.
+Meteorological winter December 1 to February 28.
 }
 \examples{
 sys_data_frame <- tibble(Date = Sys.Date())
