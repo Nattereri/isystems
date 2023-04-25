@@ -4,14 +4,16 @@
 \alias{factorYrMn}
 \title{Returns factor levels for Month (abbrev)Year in order (4 or 2 digit years)}
 \usage{
-factorYrMn(fromYear, toYear, yr_type = 2)
+factorYrMn(fromYear, toYear, abbr_yr = T, abbr_mn = T)
 }
 \arguments{
 \item{fromYear}{integer Year}
 
 \item{toYear}{integer Year}
 
-\item{yr_type}{2 or 4 digit years}
+\item{abbr_yr}{logical TRUE 2 digit year FALSE 4 digit year}
+
+\item{abbr_mn}{logical TRUE abbreviated month FALSE full month}
 }
 \value{
 character vector
@@ -21,6 +23,7 @@ Returns factor levels for Month (abbrev)Year in order (4 or 2 digit years)
 }
 \examples{
 factorYrMn(2000, 2023)
+factorYrMn(2020, 2023, abbr_yr = F, abbr_mn = F)
 
 
 }
