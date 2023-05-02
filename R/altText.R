@@ -28,7 +28,8 @@ altText <- function (lookUpParameter) {
     "Total Iron" = "Total Iron",
     "Soluble Iron" = "Soluble Iron",
     "Total Sodium" = "Total Sodium",
-    "Total Viable Count" = "Total Viable Count"
+    "Total Viable Count" = "Total Viable Count @22\u00B0C",
+    "Total Viable Count 37" = "Total Viable Count @37\u00B0C"
   )
 
   Txt[[lookUpParameter]]

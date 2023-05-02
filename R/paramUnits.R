@@ -18,6 +18,7 @@ paramUnits <- function (lookUpParameter) {
     "pH" = "",
     "Pseudomonas Species" = "(cfu/100ml)",
     "Total Viable Count" = "(cfu/100ml @22\u00B0C)",
+    "Total Viable Count 37" = "(cfu/100ml @37\u00B0C)",
     "Conductivity" = "(mS/m)",
     "Chloride" = "(mg/l)",
     "Nitrite" = "(NO2-N mg/l)",
@@ -26,7 +27,7 @@ paramUnits <- function (lookUpParameter) {
     "Total Sodium"  = "(mg/l)",
     "TDS"  = "(mg/l)",
     "Sulphate" = "(mg/l)",
-
+    "SRB" = "present/not detected",
     "Inhibitor" = "(mg/l)",
     "Soluble Iron" = "(mg/l)",
     "Soluble Copper" = "(mg/l)")

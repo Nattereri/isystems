@@ -17,6 +17,7 @@ paramColour <- function (lookUpParameter) {
     "pH" = "darkorange",
     "Pseudomonas Species" = "yellow3",
     "Total Viable Count" = "darkgoldenrod3",
+    "Total Viable Count 37" = "darkgoldenrod2",
     "Conductivity" = "purple4",
     "Chloride" = "burlywood",
     "Nitrite" = "coral3",
@@ -25,7 +26,7 @@ paramColour <- function (lookUpParameter) {
     "Total Sodium"  = "honeydew4",
     "TDS"  = "mistyrose2",
     "Sulphate" = "dodgerblue",
-
+    "SRB" = "grey35",
     "Inhibitor" = "moccasin",
     "Soluble Iron" = "red",
     "Soluble Copper" = "darkorange4")
