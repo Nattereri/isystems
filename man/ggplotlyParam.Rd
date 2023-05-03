@@ -99,4 +99,19 @@ ggplotlyParam(system_df,
               plot_parameter = "Glycol",
               show_controlvalues = T)
 
+Date <- c("2022-08-3", "2022-10-7", "2022-12-5", "2023-02-3", "2023-04-7")
+Date <- lubridate::ymd(Date)
+Year <- lubridate::year(Date)
+Parameter <- c("Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species")
+value <- c(100, 2000, 50000, 1000000, 300000)
+system <- c("CHW", "CHW", "CHW", "CHW", "CHW")
+SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
+system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
+ggplotlyParam(system_df,
+              site = "No 10",
+              plot_system = "CHW",
+              plot_parameter = "Pseudomonas Species",
+              show_controlvalues = F,
+              loess_trend = F)
+
 }

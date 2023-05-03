@@ -61,6 +61,21 @@
 #'               plot_parameter = "Glycol",
 #'               show_controlvalues = T)
 #'
+#' Date <- c("2022-08-3", "2022-10-7", "2022-12-5", "2023-02-3", "2023-04-7")
+#' Date <- lubridate::ymd(Date)
+#' Year <- lubridate::year(Date)
+#' Parameter <- c("Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species")
+#' value <- c(100, 2000, 50000, 1000000, 300000)
+#' system <- c("CHW", "CHW", "CHW", "CHW", "CHW")
+#' SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
+#' system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
+#' ggplotlyParam(system_df,
+#'               site = "No 10",
+#'               plot_system = "CHW",
+#'               plot_parameter = "Pseudomonas Species",
+#'               show_controlvalues = F,
+#'               loess_trend = F)
+#'
 #' @export
 ggplotlyParam <- function(df,
                           site = "",
@@ -101,10 +116,6 @@ ggplotlyParam <- function(df,
   if (nrow(g_data) > 0) {
     S_date <- min(g_data$Date)
     E_date <- max(g_data$Date)
-
-    if (plot_parameter == "Pseudomonas Species" | plot_parameter == "Total Viable Count") {
-      g_data$value <- log10(1 + g_data$value)
-    }
 
     p <- ggplot(g_data, aes(x = Date, y = value))
 
@@ -222,14 +233,22 @@ ggplotlyParam <- function(df,
     )
 
     if (plot_parameter == "Pseudomonas Species" | plot_parameter == "TVC22") {
-      p <- p + scale_y_log10(
-        breaks = scales::trans_breaks("log10", function(x) 10^x),
-        labels = scales::trans_format("log10", scales::math_format(10^.x))
-      ) +
+
+      p <- p + scale_y_continuous(
+        trans = "log10",
+        breaks = breaks_log(),
+        labels = label_number()) +
         annotation_logticks(sides = "rl")
+
+      # p <- p + scale_y_log10(
+      #   breaks = scales::trans_breaks("log10", function(x) 10^x),
+      #   labels = scales::trans_format("log10", scales::math_format(10^.x))
+      # ) +
+      #   annotation_logticks(sides = "rl")
 
       ano_y_min <- 0
       ano_y_max <- max(g_data$value, na.rm = T) + 2
+
     } else {
       p <- p + scale_y_continuous()
 
