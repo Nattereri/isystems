@@ -29,6 +29,7 @@ paramUnits <- function (lookUpParameter) {
     "Total Sodium"  = "(mg/l)",
     "TDS"  = "(mg/l)",
     "Sulphate" = "(mg/l)",
+    "Suspended Solids" = "(mg/l)",
     "SRB" = "present/not detected",
     "Inhibitor" = "(mg/l)",
     "Soluble Iron" = "(mg/l)",

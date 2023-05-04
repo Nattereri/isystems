@@ -28,6 +28,7 @@ paramColour <- function (lookUpParameter) {
     "Total Sodium"  = "honeydew4",
     "TDS"  = "mistyrose2",
     "Sulphate" = "dodgerblue",
+    "Suspended Solids" = "cornsilk4",
     "SRB" = "grey35",
     "Inhibitor" = "moccasin",
     "Soluble Iron" = "red",
