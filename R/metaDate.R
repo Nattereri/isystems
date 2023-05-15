@@ -44,6 +44,8 @@ metaDate <- function(system_df) {
                   MonthNr = lubridate::month(Date),
                   MonthFull = lubridate::month(Date, label = T, abbr = F),
                   Year = lubridate::year(Date),
+                  Year2 = stringr::str_sub(as.character(Year), 3L, 4L),
+                  monYr2 = glue("{Month} {Year2}"),
                   Week = lubridate::week(Date),
                   YearDay = lubridate::yday(Date),
                   MonthDay = lubridate::mday(Date),
