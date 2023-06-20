@@ -33,7 +33,8 @@ paramColour <- function (lookUpParameter) {
     "Inhibitor" = "moccasin",
     "Soluble Iron" = "red",
     "Soluble Copper" = "darkorange4",
-    "Ammoniacal Nitrogen" = "greenyellow")
+    "Ammoniacal Nitrogen" = "greenyellow",
+    "Phosphorous" = "brown")
 
   unitsList[[lookUpParameter]]
 

@@ -34,7 +34,8 @@ paramUnits <- function (lookUpParameter) {
     "Inhibitor" = "(mg/l)",
     "Soluble Iron" = "(mg/l)",
     "Soluble Copper" = "(mg/l)",
-    "Ammoniacal Nitrogen" = "(mg/l as N)")
+    "Ammoniacal Nitrogen" = "(mg/l as N)",
+    "Phosphorous" = "(mg/l as P)")
 
   unitsList[[lookUpParameter]]
 
