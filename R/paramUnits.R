@@ -33,7 +33,8 @@ paramUnits <- function (lookUpParameter) {
     "SRB" = "present/not detected",
     "Inhibitor" = "(mg/l)",
     "Soluble Iron" = "(mg/l)",
-    "Soluble Copper" = "(mg/l)")
+    "Soluble Copper" = "(mg/l)",
+    "Ammoniacal Nitrogen" = "(mg/l as N)")
 
   unitsList[[lookUpParameter]]
 
