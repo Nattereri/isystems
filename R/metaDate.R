@@ -2,6 +2,7 @@
 #'
 #' From the Date column creates useful date information (Month, MonthNr, MonthFull, Year, Week,
 #' YearDay, MonthDay, WeekDay, WeekDayFull, Season); as extra columns in the data frame.
+#' NOTE: a POSIXct vector will be converted to a Date vector.
 #'
 #' Season:
 #' Meteorological spring March 1 to May 31.
@@ -27,6 +28,11 @@ metaDate <- function(system_df) {
   #check column names have Date column
   system_df_col_names <- colnames(system_df)
   stopifnot("Date column name must be in the data frame" =  ("Date" %in% system_df_col_names))
+
+  # if Date vector is POSIXct then convert to Date keep original as DateTime
+  if(is.POSIXct(system_df$Date)){
+    system_df$Date <- lubridate::as_date(system_df$Date)
+  }
 
   #check Date column
   stopifnot("Input must be a Date" =  lubridate::is.Date(system_df$Date))

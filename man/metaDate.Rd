@@ -15,6 +15,7 @@ data.frame
 \description{
 From the Date column creates useful date information (Month, MonthNr, MonthFull, Year, Week,
 YearDay, MonthDay, WeekDay, WeekDayFull, Season); as extra columns in the data frame.
+NOTE: a POSIXct vector will be converted to a Date vector.
 }
 \details{
 Season:
