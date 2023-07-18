@@ -16,7 +16,7 @@ numerical vector with values between 0 and 1.
 Normalize a numerical vector between 0-1
 }
 \examples{
-lnormalize(c(1, 2, 3, 4, 5))
+normalize(c(1, 2, 3, 4, 5))
 
 
 

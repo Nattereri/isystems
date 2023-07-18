@@ -5,7 +5,7 @@
 #' @return numerical vector with values between 0 and 1.
 #'
 #' @examples
-#' lnormalize(c(1, 2, 3, 4, 5))
+#' normalize(c(1, 2, 3, 4, 5))
 #'
 #'
 #'
@@ -16,6 +16,6 @@ normalize<-function(x){
   stopifnot("Vector must be numeric" =  is.numeric(x))
 
   # be careful, the denominator may be trivial!
-  return((x-min(x, na.rm = T))/(max(x, na.rm = T)-min(x, na.rm + T)))
+  return((x-min(x, na.rm = T))/(max(x, na.rm = T)-min(x, na.rm = T)))
 
 }
