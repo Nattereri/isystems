@@ -27,6 +27,7 @@ paramUnits <- function (lookUpParameter) {
     "Total Iron" = "(mg/l)",
     "Total Copper" = "(mg/l)",
     "Total Sodium"  = "(mg/l)",
+    "Total Aluminium"  = "(mg/l)",
     "TDS"  = "(mg/l)",
     "Sulphate" = "(mg/l)",
     "Suspended Solids" = "(mg/l)",
@@ -34,6 +35,7 @@ paramUnits <- function (lookUpParameter) {
     "Inhibitor" = "(mg/l)",
     "Soluble Iron" = "(mg/l)",
     "Soluble Copper" = "(mg/l)",
+    "Soluble Aluminium"  = "(mg/l)",
     "Ammoniacal Nitrogen" = "(mg/l as N)",
     "Phosphorous" = "(mg/l as P)")
 

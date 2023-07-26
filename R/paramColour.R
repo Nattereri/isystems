@@ -26,6 +26,7 @@ paramColour <- function (lookUpParameter) {
     "Total Iron" =  "darkred",
     "Total Copper" = "seagreen",
     "Total Sodium"  = "honeydew4",
+    "Total Aluminium"  = "azure3",
     "TDS"  = "mistyrose2",
     "Sulphate" = "dodgerblue",
     "Suspended Solids" = "cornsilk4",
@@ -33,6 +34,7 @@ paramColour <- function (lookUpParameter) {
     "Inhibitor" = "moccasin",
     "Soluble Iron" = "red",
     "Soluble Copper" = "darkorange4",
+    "Soluble Aluminium"  = "powderblue",
     "Ammoniacal Nitrogen" = "greenyellow",
     "Phosphorous" = "brown")
 
