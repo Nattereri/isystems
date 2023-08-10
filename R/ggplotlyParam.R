@@ -232,7 +232,7 @@ ggplotlyParam <- function(df,
       limits = c(S_date, E_date)
     )
 
-    if (plot_parameter == "Pseudomonas Species" | plot_parameter == "TVC22") {
+    if (plot_parameter == "Pseudomonas Species" | plot_parameter == "TVC22" | plot_parameter == "NRB") {
 
       p <- p + scale_y_continuous(
         trans = "log10",

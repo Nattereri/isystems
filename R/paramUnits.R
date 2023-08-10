@@ -37,7 +37,8 @@ paramUnits <- function (lookUpParameter) {
     "Soluble Copper" = "(mg/l)",
     "Soluble Aluminium"  = "(mg/l)",
     "Ammoniacal Nitrogen" = "(mg/l as N)",
-    "Phosphorous" = "(mg/l as P)")
+    "Phosphorous" = "(mg/l as P)",
+    "NRB" = "(cfu/100ml)")
 
   unitsList[[lookUpParameter]]
 
