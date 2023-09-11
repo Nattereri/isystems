@@ -28,6 +28,7 @@ paramUnits <- function (lookUpParameter) {
     "Total Copper" = "(mg/l)",
     "Total Sodium"  = "(mg/l)",
     "Total Aluminium"  = "(mg/l)",
+    "Total Zinc"  = "(mg/l)",
     "TDS"  = "(mg/l)",
     "Sulphate" = "(mg/l)",
     "Suspended Solids" = "(mg/l)",

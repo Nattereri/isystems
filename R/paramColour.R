@@ -27,6 +27,7 @@ paramColour <- function (lookUpParameter) {
     "Total Copper" = "seagreen",
     "Total Sodium"  = "honeydew4",
     "Total Aluminium"  = "azure3",
+    "Total Zinc"  = "azure2",
     "TDS"  = "mistyrose2",
     "Sulphate" = "dodgerblue",
     "Suspended Solids" = "cornsilk4",
