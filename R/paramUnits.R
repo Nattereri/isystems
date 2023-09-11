@@ -37,9 +37,11 @@ paramUnits <- function (lookUpParameter) {
     "Soluble Iron" = "(mg/l)",
     "Soluble Copper" = "(mg/l)",
     "Soluble Aluminium"  = "(mg/l)",
+    "Soluble Zinc"  = "(mg/l)",
     "Ammoniacal Nitrogen" = "(mg/l as N)",
     "Phosphorous" = "(mg/l as P)",
-    "NRB" = "(cfu/100ml)")
+    "NRB" = "(cfu/100ml)",
+    "Turbidity" = "NTU")
 
   unitsList[[lookUpParameter]]
 

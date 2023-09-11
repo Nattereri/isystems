@@ -36,7 +36,10 @@ paramColour <- function (lookUpParameter) {
     "Soluble Iron" = "red",
     "Soluble Copper" = "darkorange4",
     "Soluble Aluminium"  = "powderblue",
+    "Soluble Zinc"  = "cadetblue",
+    "Turbidity"  = "cadetblue",
     "Ammoniacal Nitrogen" = "greenyellow",
+    "Turbidity" = "lemonchiffon2",
     "Phosphorous" = "brown",
     "NRB" = "lightgreen")
 
