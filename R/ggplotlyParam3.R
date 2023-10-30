@@ -276,7 +276,7 @@ ggplotlyParam3 <- function(df,
     }
   }
 
-  g_theme <- theme_bw(base_size = 18) +
+  g_theme <- theme_bw(base_size = txtSize) +
                theme (legend.position = "none",
                       axis.text.x = element_text(face="bold", angle = 270),
                       axis.text.y = element_text(face="bold"),
