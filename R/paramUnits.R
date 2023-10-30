@@ -12,6 +12,7 @@ paramUnits <- function (lookUpParameter) {
 
   unitsList <- c(#Look up table as named vector
     "Appearance"  = "",
+    "BOD" = "(mg/l)",
     "Temperature" = "(\u00B0C)",
     "Molybdate"  = "(MoO4 mg/l)",
     "Glycol" = "(%v/v)",
@@ -39,6 +40,7 @@ paramUnits <- function (lookUpParameter) {
     "Soluble Aluminium"  = "(mg/l)",
     "Soluble Zinc"  = "(mg/l)",
     "Ammoniacal Nitrogen" = "(mg/l as N)",
+    "Ammonia" = "(mg/l as NH3)",
     "Phosphorous" = "(mg/l as P)",
     "NRB" = "(cfu/100ml)",
     "Turbidity" = "NTU")

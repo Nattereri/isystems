@@ -12,6 +12,7 @@ paramColour <- function (lookUpParameter) {
 
   unitsList <- c(#Look up table as named vector
     "Temperature" = "steelblue",
+    "BOD" = "#EF2917",
     "Molybdate"  = "lightseagreen",
     "Glycol" = "slategrey",
     "pH" = "darkorange",
@@ -39,6 +40,7 @@ paramColour <- function (lookUpParameter) {
     "Soluble Zinc"  = "cadetblue",
     "Turbidity"  = "cadetblue",
     "Ammoniacal Nitrogen" = "greenyellow",
+    "Ammonia" = "greenyellow",
     "Turbidity" = "lemonchiffon2",
     "Phosphorous" = "brown",
     "NRB" = "lightgreen")
