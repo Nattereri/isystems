@@ -29,7 +29,8 @@ ggplotlyParam3(
   gg_plotly = F,
   inhibitor = "mixed",
   Soluble = F,
-  Caption = ""
+  Caption = "",
+  txtSize = 16
 )
 }
 \arguments{
@@ -80,6 +81,8 @@ ggplotlyParam3(
 \item{Soluble}{Logical. If TRUE soluble values shown as a different shape.}
 
 \item{Caption}{String, text for the graph caption}
+
+\item{txtSize}{numeric, theme base_font size}
 }
 \value{
 ggplot or ggplotly graph

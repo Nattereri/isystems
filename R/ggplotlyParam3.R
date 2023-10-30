@@ -29,6 +29,8 @@
 #' @param inhibitor String. Inhibitor strategy; "nitrite", "mixed"  by default.
 #' @param Soluble Logical. If TRUE soluble values shown as a different shape.
 #' @param Caption String, text for the graph caption
+#' @param txtSize numeric, theme base_font size
+#'
 #' @import tidyverse
 #' @import ggplot2
 #' @import scales
@@ -105,7 +107,8 @@ ggplotlyParam3 <- function(df,
                            gg_plotly = F,
                            inhibitor = "mixed",
                            Soluble = F,
-                           Caption = "") {
+                           Caption = "",
+                           txtSize = 16) {
 
   date_scale <- glue("{date_scale} {date_period}")
 
@@ -273,29 +276,29 @@ ggplotlyParam3 <- function(df,
     }
   }
 
-  g_theme <- theme (legend.position = "none",
-                    axis.text.x = element_text(face="bold", angle = 270),
-                    axis.text.y = element_text(face="bold"),
-                    axis.title.x = element_blank(),
-                    axis.title.y = element_text(),
-                    plot.title = element_text(face="bold"),
-                    panel.grid.minor = element_blank(),
-                    panel.grid.major.y = element_line(colour = "grey80", linetype = "dotted"),
-                    panel.grid.minor.y = element_blank(),
-                    panel.grid.major.x = element_line(colour = "grey80", linetype = "dotted"),
-                    plot.caption = element_text(),
-                    strip.text = element_text(face="bold", colour = "white"),
-                    strip.background = element_rect(fill = "black"))
+  g_theme <- theme_bw(base_size = 18) +
+               theme (legend.position = "none",
+                      axis.text.x = element_text(face="bold", angle = 270),
+                      axis.text.y = element_text(face="bold"),
+                      axis.title.x = element_blank(),
+                      axis.title.y = element_text(),
+                      plot.title = element_text(face="bold"),
+                      panel.grid.minor = element_blank(),
+                      panel.grid.major.y = element_line(colour = "grey80", linetype = "dotted"),
+                      panel.grid.minor.y = element_blank(),
+                      panel.grid.major.x = element_line(colour = "grey80", linetype = "dotted"),
+                      plot.caption = element_text(),
+                      strip.text = element_text(face="bold", colour = "white"),
+                      strip.background = element_rect(fill = "black"))
 
   if (Soluble) {
 
     p <- p + scale_shape_manual(values = c(21, 24)) +
-      labs(title = gtitle,
+         labs(title = gtitle,
            y = axsisTxt,
            x = "Triangular points are soluble values",
            shape = "Soluble") +
-      theme_bw(base_size = 18) +
-      g_theme
+         g_theme
 
 
   } else {
@@ -303,8 +306,7 @@ ggplotlyParam3 <- function(df,
     p <- p + labs(title = gtitle,
                   y = axsisTxt,
                   caption = Caption) +
-      theme_bw(base_size = 18) +
-      g_theme
+         g_theme
 
   }
 
