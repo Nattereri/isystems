@@ -112,7 +112,7 @@ ggplotlyParam3 <- function(df,
 
   date_scale <- glue("{date_scale} {date_period}")
 
-  gtitle <- glue("{PlotLocation}:\nTimeLine of {figTxt}")
+  gtitle <- glue("{PlotLocation}: {figTxt}")
 
   g_data <- df %>%
     filter(Location == PlotLocation, !is.na(value), Parameter == PlotParm)
