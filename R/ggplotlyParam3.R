@@ -273,6 +273,20 @@ ggplotlyParam3 <- function(df,
     }
   }
 
+  g_theme <- theme (legend.position = "none",
+                    axis.text.x = element_text(face="bold", angle = 270),
+                    axis.text.y = element_text(face="bold"),
+                    axis.title.x = element_blank(),
+                    axis.title.y = element_text(),
+                    plot.title = element_text(face="bold"),
+                    panel.grid.minor = element_blank(),
+                    panel.grid.major.y = element_line(colour = "grey80", linetype = "dotted"),
+                    panel.grid.minor.y = element_blank(),
+                    panel.grid.major.x = element_line(colour = "grey80", linetype = "dotted"),
+                    plot.caption = element_text(),
+                    strip.text = element_text(face="bold", colour = "white"),
+                    strip.background = element_rect(fill = "black"))
+
   if (Soluble) {
 
     p <- p + scale_shape_manual(values = c(21, 24)) +
@@ -281,19 +295,8 @@ ggplotlyParam3 <- function(df,
            x = "Triangular points are soluble values",
            shape = "Soluble") +
       theme_bw(base_size = 18) +
-      theme (legend.position = "none",
-             axis.text.x = element_text(size=10, face="bold", angle = 270),
-             axis.text.y = element_text(size=10, face="bold"),
-             axis.title.x = element_text(size=10),
-             axis.title.y = element_text(size=10),
-             plot.title = element_text(size=14, face="bold"),
-             panel.grid.minor = element_blank(),
-             panel.grid.major.y = element_line(colour = "grey80", linetype = "dotted"),
-             panel.grid.minor.y = element_blank(),
-             panel.grid.major.x = element_line(colour = "grey80", linetype = "dotted"),
-             plot.caption = element_text(),
-             strip.text = element_text(face="bold", colour = "white"),
-             strip.background = element_rect(fill = "black"))
+      g_theme
+
 
   } else {
 
@@ -301,19 +304,7 @@ ggplotlyParam3 <- function(df,
                   y = axsisTxt,
                   caption = Caption) +
       theme_bw(base_size = 18) +
-      theme (legend.position = "none",
-             axis.text.x = element_text(size=10, face="bold", angle = 270),
-             axis.text.y = element_text(size=10, face="bold"),
-             axis.title.x = element_blank(),
-             axis.title.y = element_text(size=10),
-             plot.title = element_text(size=14, face="bold"),
-             panel.grid.minor = element_blank(),
-             panel.grid.major.y = element_line(colour = "grey80", linetype = "dotted"),
-             panel.grid.minor.y = element_blank(),
-             panel.grid.major.x = element_line(colour = "grey80", linetype = "dotted"),
-             plot.caption = element_text(),
-             strip.text = element_text(face="bold", colour = "white"),
-             strip.background = element_rect(fill = "black"))
+      g_theme
 
   }
 
