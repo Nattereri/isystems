@@ -2,12 +2,12 @@
 % Please edit documentation in R/ggplotlyParam3.R
 \name{ggplotlyParam3}
 \alias{ggplotlyParam3}
-\title{Plot a timeline of closed system parameter option to make a plotly graph}
+\title{Plot a timeline of a location parameter option to make a plotly graph}
 \usage{
 ggplotlyParam3(
   df,
   site = "",
-  PlotSystem = "LPHW",
+  PlotLocation = "LPHW",
   PlotParm = "pH",
   gtitle = "",
   axsisTxt = "Molybdate (mg/l as MoO4)",
@@ -36,6 +36,10 @@ ggplotlyParam3(
 \item{df}{Data frame with Date, SampleID, value and Parameter column.}
 
 \item{site}{String site name blank by default}
+
+\item{PlotLocation}{String. Location name blank by default.}
+
+\item{PlotParm}{String. parameter name}
 
 \item{gtitle}{String, graph title}
 
@@ -76,16 +80,12 @@ ggplotlyParam3(
 \item{Soluble}{Logical. If TRUE soluble values shown as a different shape.}
 
 \item{Caption}{String, text for the graph caption}
-
-\item{plot_system}{String. System name blank by default.}
-
-\item{plot_parameter}{String. parameter name}
 }
 \value{
 ggplot or ggplotly graph
 }
 \description{
-Plot a timeline of closed system parameter option to make a plotly graph
+Plot a timeline of a location parameter option to make a plotly graph
 and option to make a control value graph
 }
 \examples{
@@ -94,25 +94,25 @@ Date <- lubridate::ymd(Date)
 Year <- lubridate::year(Date)
 Parameter <- c("pH", "pH", "pH", "pH", "pH", "pH")
 value <- c(7.5, 8.8, 9.0, 5.0, 6.5, 7.8)
-system <- c("LPHW", "LPHW", "LPHW", "LPHW", "LPHW", "LPHW")
+Location <- c("LPHW", "LPHW", "LPHW", "LPHW", "LPHW", "LPHW")
 SampleID <- c("LPHW 1", "LPHW 1", "LPHW 1", "LPHW 1", "LPHW 1", "LPHW 1")
-system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
-ggplotlyParam(system_df, site = "No 10", plot_parameter = "pH")
+system_df <- tibble::tibble(Date, Year, Parameter, value, Location, SampleID)
+ggplotlyParam3(system_df, site = "No 10", PlotParm = "pH")
 
-ggplotlyParam(system_df, site = "No 10", plot_parameter = "pH", gg_plotly = T)
+ggplotlyParam3(system_df, site = "No 10", PlotParm = "pH", gg_plotly = T)
 
 Date <- c("2022-08-3", "2022-10-7", "2022-12-5", "2023-02-3", "2023-04-7")
 Date <- lubridate::ymd(Date)
 Year <- lubridate::year(Date)
 Parameter <- c("Glycol", "Glycol", "Glycol", "Glycol", "Glycol")
 value <- c(15, 20, 30, 29, 31)
-system <- c("CHW", "CHW", "CHW", "CHW", "CHW")
+Location <- c("CHW", "CHW", "CHW", "CHW", "CHW")
 SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
-system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
-ggplotlyParam(system_df,
+system_df <- tibble::tibble(Date, Year, Parameter, value, Location, SampleID)
+ggplotlyParam3(system_df,
               site = "No 10",
-              plot_system = "CHW",
-              plot_parameter = "Glycol",
+              PlotLocation = "CHW",
+              PlotParm = "Glycol",
               show_controlvalues = T)
 
 Date <- c("2022-08-3", "2022-10-7", "2022-12-5", "2023-02-3", "2023-04-7")
@@ -120,13 +120,13 @@ Date <- lubridate::ymd(Date)
 Year <- lubridate::year(Date)
 Parameter <- c("Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species")
 value <- c(100, 2000, 50000, 1000000, 300000)
-system <- c("CHW", "CHW", "CHW", "CHW", "CHW")
+Location <- c("CHW", "CHW", "CHW", "CHW", "CHW")
 SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
-system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
+system_df <- tibble::tibble(Date, Year, Parameter, value, Location, SampleID)
 ggplotlyParam3(system_df,
               site = "No 10",
-              plot_system = "CHW",
-              plot_parameter = "Pseudomonas Species",
+              PlotLocation = "CHW",
+              PlotParm = "Pseudomonas Species",
               show_controlvalues = F,
               loess_trend = F)
 

@@ -1,14 +1,14 @@
-#' Plot a timeline of closed system parameter option to make a plotly graph
+#' Plot a timeline of a location parameter option to make a plotly graph
 #'
-#' Plot a timeline of closed system parameter option to make a plotly graph
+#' Plot a timeline of a location parameter option to make a plotly graph
 #' and option to make a control value graph
 #'
 #'
 #'
 #' @param df Data frame with Date, SampleID, value and Parameter column.
 #' @param site String site name blank by default
-#' @param plot_system  String. System name blank by default.
-#' @param plot_parameter String. parameter name
+#' @param PlotLocation  String. Location name blank by default.
+#' @param PlotParm String. parameter name
 #' @param gtitle String, graph title
 #' @param axsisTxt String, axsis title
 #' @param figTxt String, fig title
@@ -44,25 +44,25 @@
 #' Year <- lubridate::year(Date)
 #' Parameter <- c("pH", "pH", "pH", "pH", "pH", "pH")
 #' value <- c(7.5, 8.8, 9.0, 5.0, 6.5, 7.8)
-#' system <- c("LPHW", "LPHW", "LPHW", "LPHW", "LPHW", "LPHW")
+#' Location <- c("LPHW", "LPHW", "LPHW", "LPHW", "LPHW", "LPHW")
 #' SampleID <- c("LPHW 1", "LPHW 1", "LPHW 1", "LPHW 1", "LPHW 1", "LPHW 1")
-#' system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
-#' ggplotlyParam(system_df, site = "No 10", plot_parameter = "pH")
+#' system_df <- tibble::tibble(Date, Year, Parameter, value, Location, SampleID)
+#' ggplotlyParam3(system_df, site = "No 10", PlotParm = "pH")
 #'
-#' ggplotlyParam(system_df, site = "No 10", plot_parameter = "pH", gg_plotly = T)
+#' ggplotlyParam3(system_df, site = "No 10", PlotParm = "pH", gg_plotly = T)
 #'
 #' Date <- c("2022-08-3", "2022-10-7", "2022-12-5", "2023-02-3", "2023-04-7")
 #' Date <- lubridate::ymd(Date)
 #' Year <- lubridate::year(Date)
 #' Parameter <- c("Glycol", "Glycol", "Glycol", "Glycol", "Glycol")
 #' value <- c(15, 20, 30, 29, 31)
-#' system <- c("CHW", "CHW", "CHW", "CHW", "CHW")
+#' Location <- c("CHW", "CHW", "CHW", "CHW", "CHW")
 #' SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
-#' system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
-#' ggplotlyParam(system_df,
+#' system_df <- tibble::tibble(Date, Year, Parameter, value, Location, SampleID)
+#' ggplotlyParam3(system_df,
 #'               site = "No 10",
-#'               plot_system = "CHW",
-#'               plot_parameter = "Glycol",
+#'               PlotLocation = "CHW",
+#'               PlotParm = "Glycol",
 #'               show_controlvalues = T)
 #'
 #' Date <- c("2022-08-3", "2022-10-7", "2022-12-5", "2023-02-3", "2023-04-7")
@@ -70,20 +70,20 @@
 #' Year <- lubridate::year(Date)
 #' Parameter <- c("Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species", "Pseudomonas Species")
 #' value <- c(100, 2000, 50000, 1000000, 300000)
-#' system <- c("CHW", "CHW", "CHW", "CHW", "CHW")
+#' Location <- c("CHW", "CHW", "CHW", "CHW", "CHW")
 #' SampleID <- c("CHW 1", "CHW 1", "CHW 1", "CHW 1", "CHW 1")
-#' system_df <- tibble::tibble(Date, Year, Parameter, value, system, SampleID)
+#' system_df <- tibble::tibble(Date, Year, Parameter, value, Location, SampleID)
 #' ggplotlyParam3(system_df,
 #'               site = "No 10",
-#'               plot_system = "CHW",
-#'               plot_parameter = "Pseudomonas Species",
+#'               PlotLocation = "CHW",
+#'               PlotParm = "Pseudomonas Species",
 #'               show_controlvalues = F,
 #'               loess_trend = F)
 #'
 #' @export
 ggplotlyParam3 <- function(df,
                            site = "",
-                           PlotSystem = "LPHW",
+                           PlotLocation = "LPHW",
                            PlotParm = "pH",
                            gtitle = "",
                            axsisTxt = "Molybdate (mg/l as MoO4)",
@@ -109,10 +109,10 @@ ggplotlyParam3 <- function(df,
 
   date_scale <- glue("{date_scale} {date_period}")
 
-  gtitle <- glue("{PlotSystem}: TimeLine of {figTxt}")
+  gtitle <- glue("{PlotLocation}: TimeLine of {figTxt}")
 
   g_data <- df %>%
-    filter(system == PlotSystem, !is.na(value), Parameter == PlotParm)
+    filter(Location == PlotLocation, !is.na(value), Parameter == PlotParm)
 
 
   S_date <- min(g_data$Date)
@@ -164,29 +164,6 @@ ggplotlyParam3 <- function(df,
 
   if (PlotParm == "Pseudomonas Species" | PlotParm == "TVC22" | PlotParm == "TVC37"| PlotParm == "SRB" | PlotParm == "NRB"){
 
-    # https://stackoverflow.com/questions/48307811/ggplot-log-scale-with-linear-labels
-
-    # p <- p +  scale_y_log10(breaks = scales::trans_breaks("log10", function(x) 10^x),
-    #                     labels = scales::trans_format("log10", scales::math_format(10^.x))) +
-    #     annotation_logticks(sides = "rl")
-
-
-    # p <- p +  scale_y_log10(breaks = scales::log_breaks()) +
-    #   annotation_logticks(sides = "rl")
-
-    #p <- p +  scale_y_log10(labels = label_log(digits = 1))
-
-    # logp3_trans <- trans_new(
-    # name = "logp",
-    # transform = function(x) log(x + 3),
-    # inverse = function(x) exp(x) - 3,
-    # breaks = log_breaks())
-    #
-    # scale_y_continuous(trans = logp3_trans)
-
-    #p <- p +  scale_y_log10(labels = label_log(digits = 1))
-
-    #  https://scales.r-lib.org/
 
     p <- p + scale_y_continuous(
       trans = "log10",
@@ -211,7 +188,7 @@ ggplotlyParam3 <- function(df,
 
   if (show_controlvalues) {
 
-    gtitle <- glue("{PlotSystem}: {figTxt} Control Values ")
+    gtitle <- glue("{PlotLocation}: {figTxt} Control Values ")
 
     if(inhibitor == "mixed"){
 
