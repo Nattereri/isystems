@@ -280,7 +280,7 @@ ggplotlyParam3 <- function(df,
            y = axsisTxt,
            x = "Triangular points are soluble values",
            shape = "Soluble") +
-      theme_bw() +
+      theme_bw(base_size = 18) +
       theme (legend.position = "none",
              axis.text.x = element_text(size=10, face="bold", angle = 270),
              axis.text.y = element_text(size=10, face="bold"),
@@ -300,7 +300,7 @@ ggplotlyParam3 <- function(df,
     p <- p + labs(title = gtitle,
                   y = axsisTxt,
                   caption = Caption) +
-      theme_bw() +
+      theme_bw(base_size = 18) +
       theme (legend.position = "none",
              axis.text.x = element_text(size=10, face="bold", angle = 270),
              axis.text.y = element_text(size=10, face="bold"),
