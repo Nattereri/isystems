@@ -43,7 +43,8 @@ paramColour <- function (lookUpParameter) {
     "Ammonia" = "greenyellow",
     "Turbidity" = "lemonchiffon2",
     "Phosphorous" = "brown",
-    "NRB" = "lightgreen")
+    "NRB" = "lightgreen",
+    "Manganese" = "grey80" )
 
   unitsList[[lookUpParameter]]
 

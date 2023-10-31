@@ -43,7 +43,8 @@ paramUnits <- function (lookUpParameter) {
     "Ammonia" = "(mg/l as NH3)",
     "Phosphorous" = "(mg/l as P)",
     "NRB" = "(cfu/100ml)",
-    "Turbidity" = "NTU")
+    "Turbidity" = "NTU",
+    "Manganese" = "(mg/l)")
 
   unitsList[[lookUpParameter]]
 
