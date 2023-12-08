@@ -85,7 +85,7 @@
 #' @export
 ggplotlyParam3 <- function(df,
                            site = "",
-                           PlotLocation = "Polishing Pond",
+                           PlotLocation = c("Polishing Pond"),
                            PlotParm = "",
                            gtitle = "",
                            axsisTxt = "",
@@ -115,7 +115,7 @@ ggplotlyParam3 <- function(df,
   gtitle <- glue("{PlotLocation}: {figTxt}")
 
   g_data <- df %>%
-    filter(Location == PlotLocation, !is.na(value), Parameter == PlotParm)
+    filter(Location %in% PlotLocation, !is.na(value), Parameter == PlotParm)
 
 
   S_date <- min(g_data$Date)
@@ -187,6 +187,11 @@ ggplotlyParam3 <- function(df,
 
   }
 
+  if(graph_wrap) {
+
+    p <- p + facet_wrap(~Location)
+
+  }
 
 
   if (show_controlvalues) {

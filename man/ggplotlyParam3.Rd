@@ -7,7 +7,7 @@
 ggplotlyParam3(
   df,
   site = "",
-  PlotLocation = "Polishing Pond",
+  PlotLocation = c("Polishing Pond"),
   PlotParm = "",
   gtitle = "",
   axsisTxt = "",
