@@ -8,43 +8,54 @@
 #' paramColour("Conductivity")
 #'
 #' @export
-paramColour <- function (lookUpParameter) {
-
-  unitsList <- c(#Look up table as named vector
+paramColour <- function(lookUpParameter) {
+  unitsList <- c( # Look up table as named vector
     "Ammoniacal Nitrogen" = "greenyellow",
     "Ammonia" = "greenyellow",
     "BOD" = "#EF2917",
-    "Molybdate"  = "lightseagreen",
-    "Glycol" = "slategrey",
-    "pH" = "darkorange",
-    "Pseudomonas Species" = "yellow3",
-    "Conductivity" = "purple4",
+    "Calcium" = "aquamarine2",
     "Chloride" = "burlywood",
+    "COD" = "darkcyan",
+    "Conductivity" = "purple4",
+    "Hardness" = "darkslateblue",
+    "Iron" = "darkred",
+    "Magnesium" = "tan2",
+    "Manganese" = "grey80",
+    "Nitrate" = "steelblue",
     "Nitrite" = "coral3",
+    "Nitrogen" = "blue",
+    "pH" = "darkorange",
+    "Phosphate" = "yellow2",
+    "Phosphorous" = "brown",
+    "Potassium" = "tomato",
+    "Sodium" = "honeydew4",
+    "Sulphate" = "dodgerblue",
+    "TDS" = "mistyrose2",
+    "Zinc" = "azure2",
+    "Molybdate" = "lightseagreen",
+    "Glycol" = "slategrey",
+    "Pseudomonas Species" = "yellow3",
     "Temperature" = "steelblue",
     "Soluble Iron" = "red",
     "Soluble Copper" = "darkorange4",
-    "Soluble Aluminium"  = "powderblue",
-    "Soluble Zinc"  = "cadetblue",
+    "Soluble Aluminium" = "powderblue",
+    "Soluble Zinc" = "cadetblue",
     "Total Viable Count" = "darkgoldenrod3",
-    "Total Iron" =  "darkred",
+    "Total Iron" = "darkred",
     "Total Copper" = "seagreen",
-    "Total Sodium"  = "honeydew4",
-    "Total Aluminium"  = "azure3",
+    "Total Sodium" = "honeydew4",
+    "Total Aluminium" = "azure3",
     "Total Viable Count 37" = "darkgoldenrod2",
-    "Total Zinc"  = "azure2",
-    "TDS"  = "mistyrose2",
+    "Total Zinc" = "azure2",
     "TVC22" = "darkgoldenrod3",
     "TVC37" = "darkgoldenrod2",
     "Sulphate" = "dodgerblue",
     "Suspended Solids" = "cornsilk4",
     "SRB" = "grey35",
     "Inhibitor" = "moccasin",
-    "Turbidity"  = "cadetblue",
-    "Phosphorous" = "brown",
-    "NRB" = "lightgreen",
-    "Manganese" = "grey80" )
+    "Turbidity" = "cadetblue",
+    "NRB" = "lightgreen"
+  )
 
   unitsList[[lookUpParameter]]
-
 }

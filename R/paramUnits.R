@@ -8,44 +8,56 @@
 #' paramUnits("Conductivity")
 #'
 #' @export
-paramUnits <- function (lookUpParameter) {
-
-  unitsList <- c(#Look up table as named vector
-    "Appearance"  = "",
+paramUnits <- function(lookUpParameter) {
+  unitsList <- c( # Look up table as named vector
+    "Ammonia" = "(mg/l as NH3)",
+    "Appearance" = "",
     "BOD" = "(mg/l)",
-    "Temperature" = "(\u00B0C)",
-    "Molybdate"  = "(MoO4 mg/l)",
-    "Glycol" = "(%v/v)",
+    "Calcium" = "(mg/l)",
+    "Chloride" = "(mg/l)",
+    "COD" = "(mg/l)",
+    "Conductivity" = "(mS/m)",
+    "Hardness" = "(mS/m)",
+    "Iron" = "(mg/l)",
+    "Magnesium" = "(mg/l)",
+    "Manganese" = "(mg/l)",
+    "Nitrate" = "(mg/l)",
+    "Nitrite" = "(NO2-N mg/l)",
+    "Nitrogen" = "(mg/l)",
     "pH" = "",
+    "Phosphate" = "(mg/l)",
+    "Phosphorus" = "(mg/l)",
+    "Potassium" = "(mg/l)",
+    "Sodium" = "(mg/l)",
+    "Sulphate" = "(mg/l)",
+    "TDS" = "(mg/l)",
+    "Sulphate" = "(mg/l)",
+    "Zinc" = "(mg/l)",
+    "Temperature" = "(\u00B0C)",
+    "Molybdate" = "(MoO4 mg/l)",
+    "Glycol" = "(%v/v)",
     "Pseudomonas Species" = "(cfu/100ml)",
     "Total Viable Count" = "(cfu/100ml @22\u00B0C)",
     "TVC22" = "(cfu/100ml @22\u00B0C)",
     "Total Viable Count 37" = "(cfu/100ml @37\u00B0C)",
     "TVC37" = "(cfu/100ml @37\u00B0C)",
-    "Conductivity" = "(mS/m)",
-    "Chloride" = "(mg/l)",
-    "Nitrite" = "(NO2-N mg/l)",
     "Total Iron" = "(mg/l)",
     "Total Copper" = "(mg/l)",
-    "Total Sodium"  = "(mg/l)",
-    "Total Aluminium"  = "(mg/l)",
-    "Total Zinc"  = "(mg/l)",
-    "TDS"  = "(mg/l)",
-    "Sulphate" = "(mg/l)",
+    "Total Sodium" = "(mg/l)",
+    "Total Aluminium" = "(mg/l)",
+    "Total Zinc" = "(mg/l)",
     "Suspended Solids" = "(mg/l)",
     "SRB" = "present/not detected",
     "Inhibitor" = "(mg/l)",
     "Soluble Iron" = "(mg/l)",
     "Soluble Copper" = "(mg/l)",
-    "Soluble Aluminium"  = "(mg/l)",
-    "Soluble Zinc"  = "(mg/l)",
+    "Soluble Aluminium" = "(mg/l)",
+    "Soluble Zinc" = "(mg/l)",
     "Ammoniacal Nitrogen" = "(mg/l as N)",
-    "Ammonia" = "(mg/l as NH3)",
     "Phosphorous" = "(mg/l as P)",
     "NRB" = "(cfu/100ml)",
-    "Turbidity" = "NTU",
-    "Manganese" = "(mg/l)")
+    "Turbidity" = "NTU"
+  )
 
   unitsList[[lookUpParameter]]
-
 }
