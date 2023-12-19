@@ -19,7 +19,7 @@ paramColour <- function(lookUpParameter) {
     "Conductivity" = "purple4",
     "Hardness" = "darkslateblue",
     "Iron" = "darkred",
-    "Magnesium" = "tan2",
+    "Magnesium" = "aliceblue",
     "Manganese" = "grey80",
     "Nitrate" = "steelblue",
     "Nitrite" = "coral3",
