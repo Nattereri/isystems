@@ -35,6 +35,7 @@ paramColour <- function(lookUpParameter) {
     "Molybdate" = "lightseagreen",
     "Glycol" = "slategrey",
     "Pseudomonas Species" = "yellow3",
+    "Pseudomonas aeruginosa" = "yellow4",
     "Temperature" = "steelblue",
     "Soluble Iron" = "red",
     "Soluble Copper" = "darkorange4",

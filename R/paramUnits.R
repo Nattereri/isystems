@@ -37,6 +37,7 @@ paramUnits <- function(lookUpParameter) {
     "Molybdate" = "(MoO4 mg/l)",
     "Glycol" = "(%v/v)",
     "Pseudomonas Species" = "(cfu/100ml)",
+    "Pseudomonas aeruginosa" = "(cfu/100ml)",
     "Total Viable Count" = "(cfu/100ml @22\u00B0C)",
     "TVC22" = "(cfu/100ml @22\u00B0C)",
     "Total Viable Count 37" = "(cfu/100ml @37\u00B0C)",
