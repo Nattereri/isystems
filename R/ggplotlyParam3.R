@@ -301,7 +301,7 @@ ggplotlyParam3 <- function(df,
     p <- p + scale_shape_manual(values = c(21, 24)) +
          labs(title = gtitle,
            y = axsisTxt,
-           caption = Caption,
+           subtitle = Caption,
            shape = "Soluble") +
          g_theme
 
