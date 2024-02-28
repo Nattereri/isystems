@@ -17,7 +17,7 @@ paramUnits <- function(lookUpParameter) {
     "Chloride" = "(mg/l)",
     "COD" = "(mg/l)",
     "Conductivity" = "(mS/m)",
-    "Hardness" = "(mS/m)",
+    "Hardness" = "(mg/l)",
     "Iron" = "(mg/l)",
     "Magnesium" = "(mg/l)",
     "Manganese" = "(mg/l)",
