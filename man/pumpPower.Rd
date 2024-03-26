@@ -9,7 +9,7 @@ pumpPower(Hm, Q, eff = 0.7)
 \arguments{
 \item{Hm}{pumping head (metres)}
 
-\item{Q}{discharge volume (l/s)}
+\item{Q}{discharge volume (m3/s)}
 
 \item{eff}{pump efficency (percentage)}
 }
@@ -20,6 +20,6 @@ numeric (kW)
 Returns pump power (kW) for a head and discharge
 }
 \examples{
-pumpPower(35, 0.06, eff= 0.55)
+pumpPower(1000, 0.0087, eff= 0.7)
 
 }
