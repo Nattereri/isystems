@@ -48,6 +48,7 @@ paramUnits <- function(lookUpParameter) {
     "Total Aluminium" = "(mg/l)",
     "Total Zinc" = "(mg/l)",
     "Suspended Solids" = "(mg/l)",
+    "Total Dissolved Solids" = "(mg/l)",
     "SRB" = "present/not detected",
     "Inhibitor" = "(mg/l)",
     "Soluble Iron" = "(mg/l)",
